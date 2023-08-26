@@ -44,7 +44,7 @@ public class CoursesService implements SimpleCRUD<Integer, CoursesDto> {
                 .map(courses -> ResponseDto.<CoursesDto>builder()
                         .success(true)
                         .message("OK")
-                        .data(this.coursesMapper.toDtoWithModuleAndLesson(courses))
+                        .data(this.coursesMapper.toDto(courses))
                         .build()
                 )
                 .orElse(ResponseDto.<CoursesDto>builder()

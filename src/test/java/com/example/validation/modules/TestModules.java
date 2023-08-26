@@ -87,7 +87,7 @@ public class TestModules {
     }
     @Test
     void testGetPositive(){
-        when(modulesMapper.toDtoWithLesson(any()))
+        when(modulesMapper.toDto(any()))
                 .thenReturn(ModulesDto.builder()
                         .moduleId(2)
                         .name("Hasanboy")
@@ -109,7 +109,7 @@ public class TestModules {
         Assertions.assertEquals(response.getData().getCourseId(), 2);
 
         verify(this.modulesRepository, times(1)).getModulesById(any());
-        verify(this.modulesMapper, times(1)).toDtoWithLesson(any());
+        verify(this.modulesMapper, times(1)).toDto(any());
     }
     @Test
     void testGetNegative(){

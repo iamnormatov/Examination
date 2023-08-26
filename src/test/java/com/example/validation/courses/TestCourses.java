@@ -64,7 +64,7 @@ public class TestCourses {
     }
     @Test
     void testGetPositive(){
-        when(coursesMapper.toDtoWithModuleAndLesson(any()))
+        when(coursesMapper.toDto(any()))
                 .thenReturn(CoursesDto.builder()
                         .courseId(2)
                         .name("Hasanboy")
@@ -86,7 +86,7 @@ public class TestCourses {
         Assertions.assertEquals(response.getData().getCourseId(), 2);
 
         verify(this.coursesRepository, times(1)).getCoursesById(any());
-        verify(this.coursesMapper, times(1)).toDtoWithModuleAndLesson(any());
+        verify(this.coursesMapper, times(1)).toDto(any());
     }
     @Test
     void testGetNegative(){

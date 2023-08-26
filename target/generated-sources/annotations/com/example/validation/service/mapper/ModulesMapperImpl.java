@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-17T21:07:41+0500",
+    date = "2023-08-26T20:14:58+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -80,28 +80,5 @@ public class ModulesMapperImpl extends ModulesMapper {
         }
 
         return modules;
-    }
-
-    @Override
-    public ModulesDto toDtoWithLesson(Modules modules) {
-        if ( modules == null ) {
-            return null;
-        }
-
-        ModulesDto.ModulesDtoBuilder modulesDto = ModulesDto.builder();
-
-        modulesDto.moduleId( modules.getModuleId() );
-        modulesDto.courseId( modules.getCourseId() );
-        modulesDto.name( modules.getName() );
-        modulesDto.description( modules.getDescription() );
-        modulesDto.lessonHours( modules.getLessonHours() );
-        modulesDto.price( modules.getPrice() );
-        modulesDto.createdAt( modules.getCreatedAt() );
-        modulesDto.updatedAt( modules.getUpdatedAt() );
-        modulesDto.deletedAt( modules.getDeletedAt() );
-
-        modulesDto.lessons( modules.getLessons().stream().map(this.lessonsMapper::toDto).collect(Collectors.toSet()) );
-
-        return modulesDto.build();
     }
 }

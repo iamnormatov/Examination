@@ -30,9 +30,4 @@ public abstract class CoursesMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE, resultType = Courses.class)
     public abstract Courses update(CoursesDto dto, @MappingTarget Courses courses);
 
-    @Mapping(target = "lessons", expression = "java(courses.getLessons().stream().map(this.lessonsMapper::toDto).collect(Collectors.toSet()))")
-    @Mapping(target = "modules", expression = "java(courses.getModules().stream().map(this.modulesMapper::toDto).collect(Collectors.toSet()))")
-    public abstract CoursesDto toDtoWithModuleAndLesson(Courses courses);
-
-
 }

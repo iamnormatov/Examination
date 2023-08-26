@@ -31,14 +31,4 @@ public abstract class ModulesMapper {
     @Mapping(target = "deletedAt", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE, resultType = Modules.class)
     public abstract Modules update(ModulesDto dto, @MappingTarget Modules modules);
-
-    @Mapping(target = "lessons", expression = "java(modules.getLessons().stream().map(this.lessonsMapper::toDto).collect(Collectors.toSet()))")
-    public abstract ModulesDto toDtoWithLesson(Modules modules);
-
-    public void view(){
-        Modules modules = new Modules();
-        ModulesDto modulesDto = new ModulesDto();
-
-        modulesDto.setLessons(modules.getLessons().stream().map(this.lessonsMapper::toDto).collect(Collectors.toSet()));
-    }
 }

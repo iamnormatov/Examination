@@ -55,7 +55,7 @@ public class ModulesService implements SimpleCRUD<Integer, ModulesDto> {
                 .map(courses -> ResponseDto.<ModulesDto>builder()
                         .success(true)
                         .message("OK")
-                        .data(this.modulesMapper.toDtoWithLesson(courses))
+                        .data(this.modulesMapper.toDto(courses))
                         .build()
                 )
                 .orElse(ResponseDto.<ModulesDto>builder()

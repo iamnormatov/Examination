@@ -1,0 +1,4 @@
+com\example\validation\ValidationApplicationTests.class
+com\example\validation\courses\TestCourses.class
+com\example\validation\lessons\TestLessons.class
+com\example\validation\modules\TestModules.class

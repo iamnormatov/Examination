@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-17T21:07:41+0500",
+    date = "2023-08-26T20:14:58+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -152,37 +152,6 @@ public class CoursesMapperImpl extends CoursesMapper {
         }
 
         return courses;
-    }
-
-    @Override
-    public CoursesDto toDtoWithModuleAndLesson(Courses courses) {
-        if ( courses == null ) {
-            return null;
-        }
-
-        CoursesDto.CoursesDtoBuilder coursesDto = CoursesDto.builder();
-
-        coursesDto.courseId( courses.getCourseId() );
-        coursesDto.type( courses.getType() );
-        coursesDto.name( courses.getName() );
-        coursesDto.description( courses.getDescription() );
-        coursesDto.perWeek( courses.getPerWeek() );
-        coursesDto.durationMonth( courses.getDurationMonth() );
-        coursesDto.durationDays( courses.getDurationDays() );
-        coursesDto.durationHours( courses.getDurationHours() );
-        coursesDto.intendedStudents( courses.getIntendedStudents() );
-        coursesDto.outcomes( courses.getOutcomes() );
-        coursesDto.benefits( courses.getBenefits() );
-        coursesDto.faq( courses.getFaq() );
-        coursesDto.status( courses.getStatus() );
-        coursesDto.createdAt( courses.getCreatedAt() );
-        coursesDto.updatedAt( courses.getUpdatedAt() );
-        coursesDto.deletedAt( courses.getDeletedAt() );
-
-        coursesDto.lessons( courses.getLessons().stream().map(this.lessonsMapper::toDto).collect(Collectors.toSet()) );
-        coursesDto.modules( courses.getModules().stream().map(this.modulesMapper::toDto).collect(Collectors.toSet()) );
-
-        return coursesDto.build();
     }
 
     protected Set<Lessons> lessonsDtoSetToLessonsSet(Set<LessonsDto> set) {
