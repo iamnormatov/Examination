@@ -28,20 +28,20 @@ public class LessonsService implements SimpleCRUD<Integer, LessonsDto> {
 
     @Override
     public ResponseDto<LessonsDto> create(LessonsDto dto) {
-        Optional<Courses> optional = this.coursesRepository.getCoursesById(dto.getCourseId());
-        if (optional.isEmpty()){
-            return ResponseDto.<LessonsDto>builder()
-                    .code(-1)
-                    .message("Courses are not found!")
-                    .build();
-        }
-        Optional<Modules> optional1 = this.modulesRepository.getModulesById(dto.getModuleId());
-        if (optional1.isEmpty()){
-            return ResponseDto.<LessonsDto>builder()
-                    .code(-1)
-                    .message("Modules are not found!")
-                    .build();
-        }
+//        Optional<Courses> optional = this.coursesRepository.getCoursesById(dto.getCourseId());
+//        if (optional.isEmpty()){
+//            return ResponseDto.<LessonsDto>builder()
+//                    .code(-1)
+//                    .message("Courses are not found!")
+//                    .build();
+//        }
+//        Optional<Modules> optional1 = this.modulesRepository.getModulesById(dto.getModuleId());
+//        if (optional1.isEmpty()){
+//            return ResponseDto.<LessonsDto>builder()
+//                    .code(-1)
+//                    .message("Modules are not found!")
+//                    .build();
+//        }
         try {
             Lessons lessons = this.lessonsMapper.toEntity(dto);
             lessons.setCreatedAt(LocalDateTime.now());

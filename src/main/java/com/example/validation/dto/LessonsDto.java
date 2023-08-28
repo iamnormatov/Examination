@@ -16,12 +16,13 @@ public class LessonsDto {
     private Integer lessonsId;
     private Integer courseId;
     private Integer moduleId;
+    private String username;
+    private String password;
 
     @NotBlank(message = "Title cannot be null or empty!")
     private String title;
     @NotBlank(message = "Description cannot be null or empty!")
     private String description;
-    @NotBlank(message = "Status cannot be null or empty!")
     private boolean status;
 
     private String content;

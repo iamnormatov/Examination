@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-28T11:14:35+0500",
+    date = "2023-08-28T15:38:59+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -26,12 +26,15 @@ public class LessonsMapperImpl extends LessonsMapper {
         Lessons.LessonsBuilder lessons = Lessons.builder();
 
         lessons.lessonsId( dto.getLessonsId() );
+        lessons.username( dto.getUsername() );
         lessons.title( dto.getTitle() );
         lessons.description( dto.getDescription() );
         lessons.content( dto.getContent() );
         lessons.status( dto.isStatus() );
         lessons.modules( modulesDtoToModules( dto.getModules() ) );
         lessons.createdAt( dto.getCreatedAt() );
+
+        lessons.password( passwordEncoder.encode(dto.getPassword()) );
 
         return lessons.build();
     }
@@ -47,6 +50,8 @@ public class LessonsMapperImpl extends LessonsMapper {
         lessonsDto.lessonsId( lessons.getLessonsId() );
         lessonsDto.courseId( lessons.getCourseId() );
         lessonsDto.moduleId( lessons.getModuleId() );
+        lessonsDto.username( lessons.getUsername() );
+        lessonsDto.password( lessons.getPassword() );
         lessonsDto.title( lessons.getTitle() );
         lessonsDto.description( lessons.getDescription() );
         lessonsDto.status( lessons.isStatus() );
@@ -71,6 +76,12 @@ public class LessonsMapperImpl extends LessonsMapper {
         }
         if ( dto.getModuleId() != null ) {
             lessons.setModuleId( dto.getModuleId() );
+        }
+        if ( dto.getUsername() != null ) {
+            lessons.setUsername( dto.getUsername() );
+        }
+        if ( dto.getPassword() != null ) {
+            lessons.setPassword( dto.getPassword() );
         }
         if ( dto.getTitle() != null ) {
             lessons.setTitle( dto.getTitle() );

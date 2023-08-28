@@ -21,6 +21,8 @@ public class Lessons {
     private Integer lessonsId;
     private Integer courseId;
     private Integer moduleId;
+    private String username;
+    private String password;
     private String title;
     private String description;
     private String content;
