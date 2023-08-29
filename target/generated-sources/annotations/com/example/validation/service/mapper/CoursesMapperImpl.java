@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-28T11:14:36+0500",
+    date = "2023-08-29T12:12:11+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -198,6 +198,9 @@ public class CoursesMapperImpl extends CoursesMapper {
         lessons.lessonsId( lessonsDto.getLessonsId() );
         lessons.courseId( lessonsDto.getCourseId() );
         lessons.moduleId( lessonsDto.getModuleId() );
+        lessons.username( lessonsDto.getUsername() );
+        lessons.password( lessonsDto.getPassword() );
+        lessons.enabled( lessonsDto.getEnabled() );
         lessons.title( lessonsDto.getTitle() );
         lessons.description( lessonsDto.getDescription() );
         lessons.content( lessonsDto.getContent() );
@@ -233,6 +236,9 @@ public class CoursesMapperImpl extends CoursesMapper {
         lessonsDto.lessonsId( lessons.getLessonsId() );
         lessonsDto.courseId( lessons.getCourseId() );
         lessonsDto.moduleId( lessons.getModuleId() );
+        lessonsDto.username( lessons.getUsername() );
+        lessonsDto.password( lessons.getPassword() );
+        lessonsDto.enabled( lessons.getEnabled() );
         lessonsDto.title( lessons.getTitle() );
         lessonsDto.description( lessons.getDescription() );
         lessonsDto.status( lessons.isStatus() );

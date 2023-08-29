@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-28T15:38:59+0500",
+    date = "2023-08-29T12:13:49+0500",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -34,6 +34,7 @@ public class LessonsMapperImpl extends LessonsMapper {
         lessons.modules( modulesDtoToModules( dto.getModules() ) );
         lessons.createdAt( dto.getCreatedAt() );
 
+        lessons.enabled( true );
         lessons.password( passwordEncoder.encode(dto.getPassword()) );
 
         return lessons.build();
@@ -52,6 +53,7 @@ public class LessonsMapperImpl extends LessonsMapper {
         lessonsDto.moduleId( lessons.getModuleId() );
         lessonsDto.username( lessons.getUsername() );
         lessonsDto.password( lessons.getPassword() );
+        lessonsDto.enabled( lessons.getEnabled() );
         lessonsDto.title( lessons.getTitle() );
         lessonsDto.description( lessons.getDescription() );
         lessonsDto.status( lessons.isStatus() );
@@ -82,6 +84,9 @@ public class LessonsMapperImpl extends LessonsMapper {
         }
         if ( dto.getPassword() != null ) {
             lessons.setPassword( dto.getPassword() );
+        }
+        if ( dto.getEnabled() != null ) {
+            lessons.setEnabled( dto.getEnabled() );
         }
         if ( dto.getTitle() != null ) {
             lessons.setTitle( dto.getTitle() );

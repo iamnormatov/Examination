@@ -23,6 +23,7 @@ public abstract class LessonsMapper {
     @Mapping(target = "moduleId", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "deletedAt", ignore = true)
+    @Mapping(target = "enabled", expression = "java(true)")
     @Mapping(target = "password", expression = "java(passwordEncoder.encode(dto.getPassword()))")
     public abstract Lessons toEntity(LessonsDto dto);
 
