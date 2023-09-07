@@ -1,5 +1,6 @@
 package com.example.validation.config;
 
+import com.example.validation.model.Authorities;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
